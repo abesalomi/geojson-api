@@ -40,6 +40,9 @@ public class GeoJsonParser {
             case GeoJsonPolygon.TYPE:
                 geoJson = GeoJsonPolygon.from(json);
                 break;
+            case GeoJsonMultiLineString.TYPE:
+                geoJson = GeoJsonMultiLineString.from(json);
+                break;
         }
 
         return geoJson;

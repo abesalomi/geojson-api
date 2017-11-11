@@ -62,5 +62,14 @@ public class GeoJsonParserSpec {
 
     }
 
+    @Test
+    public void whenParseMultiLineStringThenReturnGeoJsonMultiLineString() {
+
+        GeoJson geoJson = GeoJsonParser.parse(GeoJsonSamples.MULTI_LINE_STRING);
+
+        assertThat(geoJson, instanceOf(GeoJsonMultiLineString.class));
+
+    }
+
 
 }
