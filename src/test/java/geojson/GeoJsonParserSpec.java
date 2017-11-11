@@ -1,6 +1,7 @@
 package geojson;
 
 import geojson.element.GeoJson;
+import geojson.element.GeoJsonLineString;
 import geojson.element.GeoJsonMultiPoint;
 import geojson.element.GeoJsonPoint;
 import org.junit.Test;
@@ -42,6 +43,16 @@ public class GeoJsonParserSpec {
         GeoJson geoJson = GeoJsonParser.parse(GeoJsonSamples.MULTI_POINT);
 
         assertThat(geoJson, instanceOf(GeoJsonMultiPoint.class));
+
+    }
+
+
+    @Test
+    public void whenParseLineStringThenReturnGeoJsonLineString() {
+
+        GeoJson geoJson = GeoJsonParser.parse(GeoJsonSamples.LINE_STRING);
+
+        assertThat(geoJson, instanceOf(GeoJsonLineString.class));
 
     }
 

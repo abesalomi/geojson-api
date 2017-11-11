@@ -40,5 +40,10 @@ public interface GeoJsonSamples {
             "  ]\n" +
             "}";
 
+    public String LINE_STRING = "{ \"type\": \"LineString\", \"coordinates\": [ [ 40, 5 ], [ 41, 6 ] ] }";
+
+
+    public String NOT_LINE_STRING = "{ \"type\": \"NotLineString\", \"coordinates\": [ [ 40, 5 ], [ 41, 6 ] ] }";
+
 
 }
