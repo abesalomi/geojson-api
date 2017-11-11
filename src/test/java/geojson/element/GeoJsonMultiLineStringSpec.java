@@ -21,18 +21,18 @@ public class GeoJsonMultiLineStringSpec {
     public ExpectedException expected = ExpectedException.none();
 
 
-    GeoJsonMultiLineString multiPoint;
+    GeoJsonMultiLineString multiLineString;
 
     @Before
     public void before() {
-        multiPoint = GeoJsonMultiLineString.builder()
+        multiLineString = GeoJsonMultiLineString.builder()
                 .coordinates(Collections.singletonList(Arrays.asList(Arrays.asList(33.33, 44.44), Arrays.asList(33.33, 44.44))))
                 .build();
     }
 
     @Test
-    public void whenInitializedThenTypeIsGeoPoint() {
-        String type = multiPoint.getType();
+    public void whenInitializedThenTypeIsMultiLineString() {
+        String type = multiLineString.getType();
 
         assertThat(type, equalTo("MultiLineString"));
     }
@@ -40,7 +40,7 @@ public class GeoJsonMultiLineStringSpec {
 
     @Test
     public void whenInitializedThenCoordinatesIsAList() {
-        List<List<List<Double>>> coordinates = multiPoint.getCoordinates();
+        List<List<List<Double>>> coordinates = multiLineString.getCoordinates();
         assertThat(coordinates, notNullValue());
     }
 
@@ -54,7 +54,7 @@ public class GeoJsonMultiLineStringSpec {
 
 
     @Test
-    public void whenJsonIsValifThenCoordinatesShouldSet() {
+    public void whenJsonIsValidThenCoordinatesShouldSet() {
         GeoJsonMultiLineString point = GeoJsonMultiLineString.from(GeoJsonSamples.MULTI_LINE_STRING);
         assertThat(point.getCoordinates(), notNullValue());
     }

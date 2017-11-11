@@ -7,39 +7,40 @@ import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.notNullValue;
 import static org.junit.Assert.assertThat;
 
-public class GeoJsonLineStringSpec {
+public class GeoJsonMultiPolygonSpec {
 
 
     @Rule
     public ExpectedException expected = ExpectedException.none();
 
 
-    GeoJsonLineString lineString;
+    GeoJsonMultiPolygon multiPolygon;
 
     @Before
     public void before() {
-        lineString = GeoJsonLineString.builder()
-                .coordinates(Arrays.asList(Arrays.asList(33.33, 44.44), Arrays.asList(33.33, 44.44)))
+        multiPolygon = GeoJsonMultiPolygon.builder()
+                .coordinates(Collections.singletonList(Collections.singletonList(Arrays.asList(Arrays.asList(33.33, 44.44), Arrays.asList(33.33, 44.44)))))
                 .build();
     }
 
     @Test
-    public void whenInitializedThenTypeIsLineString() {
-        String type = lineString.getType();
+    public void whenInitializedThenTypeIsGeoMultiPolygon() {
+        String type = multiPolygon.getType();
 
-        assertThat(type, equalTo("LineString"));
+        assertThat(type, equalTo("MultiPolygon"));
     }
 
 
     @Test
     public void whenInitializedThenCoordinatesIsAList() {
-        List<List<Double>> coordinates = lineString.getCoordinates();
+        List<List<List<List<Double>>>> coordinates = multiPolygon.getCoordinates();
         assertThat(coordinates, notNullValue());
     }
 
@@ -48,13 +49,13 @@ public class GeoJsonLineStringSpec {
     public void whenJsonIsNotPointThenIllegalArgumentException() {
         expected.expect(IllegalArgumentException.class);
 
-        GeoJsonLineString.from(GeoJsonSamples.NOT_LINE_STRING);
+        GeoJsonMultiPolygon.from(GeoJsonSamples.NOT_MULTI_POLYGON);
     }
 
 
     @Test
     public void whenJsonIsValidThenCoordinatesShouldSet() {
-        GeoJsonLineString point = GeoJsonLineString.from(GeoJsonSamples.LINE_STRING);
+        GeoJsonMultiPolygon point = GeoJsonMultiPolygon.from(GeoJsonSamples.MULTI_POLYGON);
         assertThat(point.getCoordinates(), notNullValue());
     }
 

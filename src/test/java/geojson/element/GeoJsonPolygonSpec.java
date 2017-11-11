@@ -21,18 +21,18 @@ public class GeoJsonPolygonSpec {
     public ExpectedException expected = ExpectedException.none();
 
 
-    GeoJsonPolygon multiPoint;
+    GeoJsonPolygon polygon;
 
     @Before
     public void before() {
-        multiPoint = GeoJsonPolygon.builder()
+        polygon = GeoJsonPolygon.builder()
                 .coordinates(Collections.singletonList(Arrays.asList(Arrays.asList(33.33, 44.44), Arrays.asList(33.33, 44.44))))
                 .build();
     }
 
     @Test
-    public void whenInitializedThenTypeIsGeoPoint() {
-        String type = multiPoint.getType();
+    public void whenInitializedThenTypeIsGeoPolygon() {
+        String type = polygon.getType();
 
         assertThat(type, equalTo("Polygon"));
     }
@@ -40,7 +40,7 @@ public class GeoJsonPolygonSpec {
 
     @Test
     public void whenInitializedThenCoordinatesIsAList() {
-        List<List<List<Double>>> coordinates = multiPoint.getCoordinates();
+        List<List<List<Double>>> coordinates = polygon.getCoordinates();
         assertThat(coordinates, notNullValue());
     }
 
@@ -54,7 +54,7 @@ public class GeoJsonPolygonSpec {
 
 
     @Test
-    public void whenJsonIsValifThenCoordinatesShouldSet() {
+    public void whenJsonIsValidThenCoordinatesShouldSet() {
         GeoJsonPolygon point = GeoJsonPolygon.from(GeoJsonSamples.POLYGON);
         assertThat(point.getCoordinates(), notNullValue());
     }

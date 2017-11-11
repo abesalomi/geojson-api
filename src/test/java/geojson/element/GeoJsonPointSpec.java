@@ -50,7 +50,7 @@ public class GeoJsonPointSpec {
 
 
     @Test
-    public void whenJsonIsValifThenCoordinatesShouldSet() {
+    public void whenJsonIsValidThenCoordinatesShouldSet() {
         GeoJsonPoint point = GeoJsonPoint.from(GeoJsonSamples.POINT);
         assertThat(point.getCoordinates(), notNullValue());
     }

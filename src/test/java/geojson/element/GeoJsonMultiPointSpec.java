@@ -30,7 +30,7 @@ public class GeoJsonMultiPointSpec {
     }
 
     @Test
-    public void whenInitializedThenTypeIsGeoPoint() {
+    public void whenInitializedThenTypeIsGeoMultiPoint() {
         String type = multiPoint.getType();
 
         assertThat(type, equalTo("MultiPoint"));
@@ -53,7 +53,7 @@ public class GeoJsonMultiPointSpec {
 
 
     @Test
-    public void whenJsonIsValifThenCoordinatesShouldSet() {
+    public void whenJsonIsValidThenCoordinatesShouldSet() {
         GeoJsonMultiPoint point = GeoJsonMultiPoint.from(GeoJsonSamples.MULTI_POINT);
         assertThat(point.getCoordinates(), notNullValue());
     }
