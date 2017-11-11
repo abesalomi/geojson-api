@@ -1,9 +1,6 @@
 package geojson;
 
-import geojson.element.GeoJson;
-import geojson.element.GeoJsonLineString;
-import geojson.element.GeoJsonMultiPoint;
-import geojson.element.GeoJsonPoint;
+import geojson.element.*;
 
 import javax.json.Json;
 import javax.json.JsonArray;
@@ -39,6 +36,9 @@ public class GeoJsonParser {
                 break;
             case GeoJsonLineString.TYPE:
                 geoJson = GeoJsonLineString.from(json);
+                break;
+            case GeoJsonPolygon.TYPE:
+                geoJson = GeoJsonPolygon.from(json);
                 break;
         }
 

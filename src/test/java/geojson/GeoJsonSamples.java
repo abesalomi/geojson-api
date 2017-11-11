@@ -2,7 +2,7 @@ package geojson;
 
 public interface GeoJsonSamples {
 
-    public String POINT = "{\n" +
+    String POINT = "{\n" +
             "        \"type\": \"Point\",\n" +
             "        \"coordinates\": [\n" +
             "          33.33,\n" +
@@ -11,7 +11,7 @@ public interface GeoJsonSamples {
             "      }";
 
 
-    public String NOT_POINT = "{\n" +
+    String NOT_POINT = "{\n" +
             "        \"type\": \"NotPoint\",\n" +
             "        \"coordinates\": [\n" +
             "          33.33,\n" +
@@ -19,7 +19,7 @@ public interface GeoJsonSamples {
             "        ]\n" +
             "      }";
 
-    public String MULTI_POINT = "{\n" +
+    String MULTI_POINT = "{\n" +
             "  \"type\": \"MultiPoint\",\n" +
             "  \"coordinates\": [\n" +
             "     [ -73.9580, 40.8003 ],\n" +
@@ -30,7 +30,7 @@ public interface GeoJsonSamples {
             "}";
 
 
-    public String NOT_MULTI_POINT = "{\n" +
+    String NOT_MULTI_POINT = "{\n" +
             "  \"type\": \"NotMultiPoint\",\n" +
             "  \"coordinates\": [\n" +
             "     [ -73.9580, 40.8003 ],\n" +
@@ -40,10 +40,19 @@ public interface GeoJsonSamples {
             "  ]\n" +
             "}";
 
-    public String LINE_STRING = "{ \"type\": \"LineString\", \"coordinates\": [ [ 40, 5 ], [ 41, 6 ] ] }";
+    String LINE_STRING = "{ \"type\": \"LineString\", \"coordinates\": [ [ 40, 5 ], [ 41, 6 ] ] }";
 
 
-    public String NOT_LINE_STRING = "{ \"type\": \"NotLineString\", \"coordinates\": [ [ 40, 5 ], [ 41, 6 ] ] }";
+    String NOT_LINE_STRING = "{ \"type\": \"NotLineString\", \"coordinates\": [ [ 40, 5 ], [ 41, 6 ] ] }";
 
 
+    String NOT_POLYGON = "{\n" +
+            "  \"type\": \"NotPolygon\",\n" +
+            "  \"coordinates\": [ [ [ 0 , 0 ] , [ 3 , 6 ] , [ 6 , 1 ] , [ 0 , 0  ] ] ]\n" +
+            "}";
+
+    String POLYGON = "{\n" +
+            "  \"type\": \"Polygon\",\n" +
+            "  \"coordinates\": [ [ [ 0 , 0 ] , [ 3 , 6 ] , [ 6 , 1 ] , [ 0 , 0  ] ] ]\n" +
+            "}";
 }

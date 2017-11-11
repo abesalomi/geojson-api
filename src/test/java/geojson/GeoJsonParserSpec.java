@@ -1,9 +1,6 @@
 package geojson;
 
-import geojson.element.GeoJson;
-import geojson.element.GeoJsonLineString;
-import geojson.element.GeoJsonMultiPoint;
-import geojson.element.GeoJsonPoint;
+import geojson.element.*;
 import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.*;
@@ -53,6 +50,15 @@ public class GeoJsonParserSpec {
         GeoJson geoJson = GeoJsonParser.parse(GeoJsonSamples.LINE_STRING);
 
         assertThat(geoJson, instanceOf(GeoJsonLineString.class));
+
+    }
+
+    @Test
+    public void whenParsePolygonThenReturnGeoJsonPolygon() {
+
+        GeoJson geoJson = GeoJsonParser.parse(GeoJsonSamples.POLYGON);
+
+        assertThat(geoJson, instanceOf(GeoJsonPolygon.class));
 
     }
 
