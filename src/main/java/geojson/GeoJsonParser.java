@@ -3,13 +3,9 @@ package geojson;
 import geojson.element.*;
 
 import javax.json.Json;
-import javax.json.JsonArray;
-import javax.json.JsonNumber;
 import javax.json.JsonObject;
 import java.io.StringReader;
-import java.util.List;
 import java.util.Objects;
-import java.util.stream.Collectors;
 
 public class GeoJsonParser {
 
