@@ -10,4 +10,35 @@ public interface GeoJsonSamples {
             "        ]\n" +
             "      }";
 
+
+    public String NOT_POINT = "{\n" +
+            "        \"type\": \"NotPoint\",\n" +
+            "        \"coordinates\": [\n" +
+            "          33.33,\n" +
+            "          44.44\n" +
+            "        ]\n" +
+            "      }";
+
+    public String MULTI_POINT = "{\n" +
+            "  \"type\": \"MultiPoint\",\n" +
+            "  \"coordinates\": [\n" +
+            "     [ -73.9580, 40.8003 ],\n" +
+            "     [ -73.9498, 40.7968 ],\n" +
+            "     [ -73.9737, 40.7648 ],\n" +
+            "     [ -73.9814, 40.7681 ]\n" +
+            "  ]\n" +
+            "}";
+
+
+    public String NOT_MULTI_POINT = "{\n" +
+            "  \"type\": \"NotMultiPoint\",\n" +
+            "  \"coordinates\": [\n" +
+            "     [ -73.9580, 40.8003 ],\n" +
+            "     [ -73.9498, 40.7968 ],\n" +
+            "     [ -73.9737, 40.7648 ],\n" +
+            "     [ -73.9814, 40.7681 ]\n" +
+            "  ]\n" +
+            "}";
+
+
 }

@@ -12,21 +12,21 @@ import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
-
 @Getter
 @Builder(toBuilder = true)
-public class GeoJsonPoint implements GeoJson<Double> {
+public class GeoJsonMultiPoint implements GeoJson<List<Double>> {
 
-    public static final String TYPE = "Point";
+    public static final String TYPE = "MultiPoint";
 
-    private List<Double> coordinates;
+
+    private List<List<Double>> coordinates;
 
     @Override
     public String getType() {
         return TYPE;
     }
 
-    public static GeoJsonPoint from(JsonObject json) {
+    public static GeoJsonMultiPoint from(JsonObject json) {
         if (!Objects.equals(json.getString("type"), TYPE)) {
             throw new IllegalArgumentException();
         }
@@ -34,16 +34,16 @@ public class GeoJsonPoint implements GeoJson<Double> {
         JsonArray coordinatesArray = json.getJsonArray("coordinates");
 
 
-        List<Double> coordinates = coordinatesArray.getValuesAs(JsonNumber.class).stream()
-                .map(JsonNumber::doubleValue)
+        List<List<Double>> coordinates = coordinatesArray.getValuesAs(JsonArray.class).stream()
+                .map(c -> c.getValuesAs(JsonNumber.class).stream().map(JsonNumber::doubleValue).collect(Collectors.toList()))
                 .collect(Collectors.toList());
 
-        return GeoJsonPoint.builder()
+        return GeoJsonMultiPoint.builder()
                 .coordinates(coordinates)
                 .build();
     }
 
-    public static GeoJsonPoint from(String jsonString) {
+    public static GeoJsonMultiPoint from(String jsonString) {
         JsonObject json = Json.createReader(new StringReader(jsonString)).readObject();
         return from(json);
     }

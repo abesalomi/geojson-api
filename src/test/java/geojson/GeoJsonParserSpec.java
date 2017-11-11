@@ -1,11 +1,11 @@
 package geojson;
 
 import geojson.element.GeoJson;
+import geojson.element.GeoJsonMultiPoint;
 import geojson.element.GeoJsonPoint;
 import org.junit.Test;
 
-import static org.hamcrest.CoreMatchers.equalTo;
-import static org.hamcrest.CoreMatchers.nullValue;
+import static org.hamcrest.CoreMatchers.*;
 import static org.hamcrest.Matchers.contains;
 import static org.junit.Assert.assertThat;
 
@@ -28,20 +28,20 @@ public class GeoJsonParserSpec {
     }
 
     @Test
-    public void whenParsePointThenReturnGeoPoint() {
+    public void whenParsePointThenReturnGeoJsonPoint() {
 
         GeoJson geoJson = GeoJsonParser.parse(GeoJsonSamples.POINT);
 
-        assertThat(geoJson.getClass(), equalTo(GeoJsonPoint.class));
+        assertThat(geoJson, instanceOf(GeoJsonPoint.class));
 
     }
 
     @Test
-    public void whenParsePointThenReturnGeoPointWithCoordinates() {
+    public void whenParseMultiPointThenReturnGeoJsonMultiPoint() {
 
-        GeoJsonPoint geoJson = GeoJsonParser.parse(GeoJsonSamples.POINT);
+        GeoJson geoJson = GeoJsonParser.parse(GeoJsonSamples.MULTI_POINT);
 
-        assertThat(geoJson.getCoordinates(), contains(33.33, 44.44));
+        assertThat(geoJson, instanceOf(GeoJsonMultiPoint.class));
 
     }
 
