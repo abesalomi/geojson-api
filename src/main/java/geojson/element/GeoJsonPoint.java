@@ -15,7 +15,7 @@ import java.util.stream.Collectors;
 
 @Getter
 @Builder(toBuilder = true)
-public class GeoJsonPoint implements GeoJson<Double> {
+public class GeoJsonPoint implements GeoJsonElement<Double> {
 
     public static final String TYPE = "Point";
 

@@ -7,12 +7,12 @@ import static org.hamcrest.CoreMatchers.instanceOf;
 import static org.hamcrest.CoreMatchers.nullValue;
 import static org.junit.Assert.assertThat;
 
-public class GeoJsonParserSpec {
+public class GeoJsonParserElementSpec {
 
     @Test
     public void givenNullWhenParseThenReturnNull() {
 
-        GeoJson geoJson = GeoJsonParser.parse(null);
+        GeoJsonElement geoJson = GeoJsonElementParser.parse(null);
 
         assertThat(geoJson, nullValue());
     }
@@ -20,7 +20,7 @@ public class GeoJsonParserSpec {
     @Test
     public void givenEmptyStringWhenParseThenReturnNull() {
 
-        GeoJson geoJson = GeoJsonParser.parse(" ");
+        GeoJsonElement geoJson = GeoJsonElementParser.parse(" ");
 
         assertThat(geoJson, nullValue());
     }
@@ -28,7 +28,7 @@ public class GeoJsonParserSpec {
     @Test
     public void whenParsePointThenReturnGeoJsonPoint() {
 
-        GeoJson geoJson = GeoJsonParser.parse(GeoJsonSamples.POINT);
+        GeoJsonElement geoJson = GeoJsonElementParser.parse(GeoJsonSamples.POINT);
 
         assertThat(geoJson, instanceOf(GeoJsonPoint.class));
 
@@ -37,7 +37,7 @@ public class GeoJsonParserSpec {
     @Test
     public void whenParseMultiPointThenReturnGeoJsonMultiPoint() {
 
-        GeoJson geoJson = GeoJsonParser.parse(GeoJsonSamples.MULTI_POINT);
+        GeoJsonElement geoJson = GeoJsonElementParser.parse(GeoJsonSamples.MULTI_POINT);
 
         assertThat(geoJson, instanceOf(GeoJsonMultiPoint.class));
 
@@ -47,7 +47,7 @@ public class GeoJsonParserSpec {
     @Test
     public void whenParseLineStringThenReturnGeoJsonLineString() {
 
-        GeoJson geoJson = GeoJsonParser.parse(GeoJsonSamples.LINE_STRING);
+        GeoJsonElement geoJson = GeoJsonElementParser.parse(GeoJsonSamples.LINE_STRING);
 
         assertThat(geoJson, instanceOf(GeoJsonLineString.class));
 
@@ -56,7 +56,7 @@ public class GeoJsonParserSpec {
     @Test
     public void whenParsePolygonThenReturnGeoJsonPolygon() {
 
-        GeoJson geoJson = GeoJsonParser.parse(GeoJsonSamples.POLYGON);
+        GeoJsonElement geoJson = GeoJsonElementParser.parse(GeoJsonSamples.POLYGON);
 
         assertThat(geoJson, instanceOf(GeoJsonPolygon.class));
 
@@ -65,7 +65,7 @@ public class GeoJsonParserSpec {
     @Test
     public void whenParseMultiLineStringThenReturnGeoJsonMultiLineString() {
 
-        GeoJson geoJson = GeoJsonParser.parse(GeoJsonSamples.MULTI_LINE_STRING);
+        GeoJsonElement geoJson = GeoJsonElementParser.parse(GeoJsonSamples.MULTI_LINE_STRING);
 
         assertThat(geoJson, instanceOf(GeoJsonMultiLineString.class));
 
@@ -74,7 +74,7 @@ public class GeoJsonParserSpec {
     @Test
     public void whenParseMultiLineStringThenReturnGeoJsonMultiPolygon() {
 
-        GeoJson geoJson = GeoJsonParser.parse(GeoJsonSamples.MULTI_POLYGON);
+        GeoJsonElement geoJson = GeoJsonElementParser.parse(GeoJsonSamples.MULTI_POLYGON);
 
         assertThat(geoJson, instanceOf(GeoJsonMultiPolygon.class));
 

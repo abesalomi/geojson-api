@@ -14,7 +14,7 @@ import java.util.stream.Collectors;
 
 @Getter
 @Builder(toBuilder = true)
-public class GeoJsonMultiLineString implements GeoJson<List<List<Double>>> {
+public class GeoJsonMultiLineString implements GeoJsonElement<List<List<Double>>> {
 
     public static final String TYPE = "MultiLineString";
 

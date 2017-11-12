@@ -14,7 +14,7 @@ import java.util.stream.Collectors;
 
 @Getter
 @Builder(toBuilder = true)
-public class GeoJsonMultiPolygon implements GeoJson<List<List<List<Double>>>> {
+public class GeoJsonMultiPolygon implements GeoJsonElement<List<List<List<Double>>>> {
 
     public static final String TYPE = "MultiPolygon";
 

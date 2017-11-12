@@ -1,11 +1,7 @@
 package geojson.element;
 
-import java.util.List;
-
-public interface GeoJson<T> {
+public interface GeoJson {
 
     String getType();
-
-    List<T> getCoordinates();
 
 }

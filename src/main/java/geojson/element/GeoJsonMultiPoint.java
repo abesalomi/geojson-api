@@ -14,7 +14,7 @@ import java.util.stream.Collectors;
 
 @Getter
 @Builder(toBuilder = true)
-public class GeoJsonMultiPoint implements GeoJson<List<Double>> {
+public class GeoJsonMultiPoint implements GeoJsonElement<List<Double>> {
 
     public static final String TYPE = "MultiPoint";
 

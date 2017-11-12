@@ -7,13 +7,13 @@ import javax.json.JsonObject;
 import java.io.StringReader;
 import java.util.Objects;
 
-public class GeoJsonParser {
+public class GeoJsonElementParser {
 
 
     private static final String TYPE_FIELD = "type";
 
 
-    public static GeoJson parse(String geoJsonStr) {
+    public static GeoJsonElement parse(String geoJsonStr) {
 
         if (Objects.isNull(geoJsonStr) || geoJsonStr.trim().isEmpty()) {
             return null;
@@ -21,7 +21,11 @@ public class GeoJsonParser {
 
         JsonObject json = Json.createReader(new StringReader(geoJsonStr)).readObject();
 
-        GeoJson geoJson = null;
+        return parse(json);
+    }
+
+    private static GeoJsonElement parse(JsonObject json) {
+        GeoJsonElement geoJson = null;
 
         switch (json.getString(TYPE_FIELD)) {
             case GeoJsonPoint.TYPE:
@@ -43,7 +47,6 @@ public class GeoJsonParser {
                 geoJson = GeoJsonMultiPolygon.from(json);
                 break;
         }
-
         return geoJson;
     }
 
