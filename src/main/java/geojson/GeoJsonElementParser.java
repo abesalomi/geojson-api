@@ -21,10 +21,10 @@ public class GeoJsonElementParser {
 
         JsonObject json = Json.createReader(new StringReader(geoJsonStr)).readObject();
 
-        return parse(json);
+        return from(json);
     }
 
-    private static GeoJsonElement parse(JsonObject json) {
+    public static GeoJsonElement from(JsonObject json) {
         GeoJsonElement geoJson = null;
 
         switch (json.getString(TYPE_FIELD)) {
