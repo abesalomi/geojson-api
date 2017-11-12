@@ -1,8 +1,5 @@
 package geojson.element;
 
-import geojson.GeoJsonElementParser;
-import geojson.util.Functions;
-import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 

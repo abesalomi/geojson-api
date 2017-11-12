@@ -1,16 +1,13 @@
 package geojson.element;
 
 import geojson.GeoJsonSamples;
-import org.hamcrest.CoreMatchers;
 import org.junit.Test;
-
-import javax.json.JsonObject;
 
 import java.util.Map;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.notNullValue;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertThat;
 
 public class GeoJsonFeatureCollectionSpec {
 
