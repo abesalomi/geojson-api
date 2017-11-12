@@ -27,7 +27,7 @@ public class Functions {
                 .collect(Collectors.toList());
     }
 
-    public static  List<Double> toCoordinatesList(JsonArray array) {
+    public static List<Double> toCoordinatesList(JsonArray array) {
         return array.getValuesAs(JsonNumber.class)
                 .stream()
                 .map(JsonNumber::doubleValue)

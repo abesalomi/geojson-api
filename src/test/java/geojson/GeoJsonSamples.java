@@ -156,7 +156,6 @@ public interface GeoJsonSamples {
             "    }";
 
 
-
     String FEATURE_COLLECTION = "{\n" +
             "  \"type\": \"FeatureCollection\",\n" +
             "  \"features\": [\n" +

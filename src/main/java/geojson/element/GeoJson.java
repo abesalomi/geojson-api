@@ -12,7 +12,7 @@ public interface GeoJson {
     String getType();
 
 
-    default String toJson(){
+    default String toJson() {
         try {
             return mapper.writeValueAsString(this);
         } catch (IOException e) {
