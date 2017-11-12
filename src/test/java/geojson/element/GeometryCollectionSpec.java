@@ -34,7 +34,7 @@ public class GeometryCollectionSpec {
     @Test
     public void whenJsonIsValidThenCoordinatesShouldSet() {
         GeometryCollection collection = GeometryCollection.from(GeoJsonSamples.GEOMETRY_COLLECTION);
-        System.out.println(collection.toJson());
+
         assertThat(collection.getGeometries(), notNullValue());
     }
 
