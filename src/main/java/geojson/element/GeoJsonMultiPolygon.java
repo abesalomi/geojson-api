@@ -1,16 +1,15 @@
 package geojson.element;
 
+import geojson.util.Functions;
 import lombok.Builder;
 import lombok.Getter;
 
 import javax.json.Json;
 import javax.json.JsonArray;
-import javax.json.JsonNumber;
 import javax.json.JsonObject;
 import java.io.StringReader;
 import java.util.List;
 import java.util.Objects;
-import java.util.stream.Collectors;
 
 @Getter
 @Builder(toBuilder = true)
@@ -34,23 +33,13 @@ public class GeoJsonMultiPolygon implements GeoJsonElement<List<List<List<Double
         JsonArray coordinatesArray = json.getJsonArray("coordinates");
 
 
-        List<List<List<List<Double>>>> coordinates = coordinatesArray.getValuesAs(JsonArray.class).stream()
-                .map(arr -> arr.getValuesAs(JsonArray.class)
-                        .stream()
-                        .map(ar -> ar.getValuesAs(JsonArray.class)
-                                .stream()
-                                .map(c -> c.getValuesAs(JsonNumber.class)
-                                        .stream()
-                                        .map(JsonNumber::doubleValue)
-                                        .collect(Collectors.toList()))
-                                .collect(Collectors.toList()))
-                        .collect(Collectors.toList()))
-                .collect(Collectors.toList());
+        List<List<List<List<Double>>>> coordinates = Functions.to4DCoordinatesList(coordinatesArray);
 
         return GeoJsonMultiPolygon.builder()
                 .coordinates(coordinates)
                 .build();
     }
+
 
     public static GeoJsonMultiPolygon from(String jsonString) {
         JsonObject json = Json.createReader(new StringReader(jsonString)).readObject();

@@ -1,5 +1,6 @@
 package geojson.element;
 
+import geojson.util.Functions;
 import lombok.Builder;
 import lombok.Getter;
 
@@ -34,9 +35,7 @@ public class GeoJsonLineString implements GeoJsonElement<List<Double>> {
         JsonArray coordinatesArray = json.getJsonArray("coordinates");
 
 
-        List<List<Double>> coordinates = coordinatesArray.getValuesAs(JsonArray.class).stream()
-                .map(c -> c.getValuesAs(JsonNumber.class).stream().map(JsonNumber::doubleValue).collect(Collectors.toList()))
-                .collect(Collectors.toList());
+        List<List<Double>> coordinates = Functions.to2DCoordinatesList(coordinatesArray);
 
         return GeoJsonLineString.builder()
                 .coordinates(coordinates)
