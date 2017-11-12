@@ -53,4 +53,10 @@ public class GeometryCollection implements GeoJson {
         return from(json);
     }
 
+
+    @Override
+    public Point getFirstPoint() {
+        return geometries.get(0).getFirstPoint();
+    }
+
 }

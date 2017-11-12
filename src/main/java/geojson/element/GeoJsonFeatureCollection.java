@@ -24,6 +24,11 @@ public class GeoJsonFeatureCollection<T> implements GeoJson {
         return TYPE;
     }
 
+    @Override
+    public Point getFirstPoint() {
+        return features.get(0).getFirstPoint();
+    }
+
 
     private GeoJsonFeatureCollection(List<GeoJsonFeature<T>> features) {
         this.features = features;

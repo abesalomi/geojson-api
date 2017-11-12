@@ -44,4 +44,10 @@ public class GeoJsonMultiPoint implements GeoJsonElement<List<Double>> {
         JsonObject json = Json.createReader(new StringReader(jsonString)).readObject();
         return from(json);
     }
+
+
+    @Override
+    public Point getFirstPoint() {
+        return Point.fromGeoJsonList(coordinates.get(0));
+    }
 }

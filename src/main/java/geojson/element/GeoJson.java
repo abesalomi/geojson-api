@@ -12,6 +12,9 @@ public interface GeoJson {
     String getType();
 
 
+    Point getFirstPoint();
+
+
     default String toJson() {
         try {
             return mapper.writeValueAsString(this);

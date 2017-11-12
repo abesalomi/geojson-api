@@ -33,6 +33,11 @@ public class GeoJsonFeature<T> implements GeoJson {
         return TYPE;
     }
 
+    @Override
+    public Point getFirstPoint() {
+        return geometry.getFirstPoint();
+    }
+
 
     public static GeoJsonFeature<Object> from(JsonObject json) {
         if (!Objects.equals(json.getString("type"), TYPE)) {
