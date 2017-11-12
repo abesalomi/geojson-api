@@ -12,7 +12,7 @@ public interface GeoJson {
     String getType();
 
 
-    Point getFirstPoint();
+    Point firstPoint();
 
 
     default String toJson() {

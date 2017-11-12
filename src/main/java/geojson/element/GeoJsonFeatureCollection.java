@@ -25,8 +25,12 @@ public class GeoJsonFeatureCollection<T> implements GeoJson {
     }
 
     @Override
-    public Point getFirstPoint() {
-        return features.get(0).getFirstPoint();
+    public Point firstPoint() {
+        return features.get(0).firstPoint();
+    }
+
+    public int size() {
+        return features.size();
     }
 
 
@@ -78,5 +82,13 @@ public class GeoJsonFeatureCollection<T> implements GeoJson {
         return createWithPropertiesMap(json);
     }
 
+    public GeometryCollection toGeometryCollection() {
+
+        List<GeoJsonElement> geometries = features.stream().map(GeoJsonFeature::getGeometry).collect(Collectors.toList());
+
+        return GeometryCollection.builder()
+                .geometries(geometries)
+                .build();
+    }
 
 }

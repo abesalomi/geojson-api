@@ -34,8 +34,8 @@ public class GeoJsonFeature<T> implements GeoJson {
     }
 
     @Override
-    public Point getFirstPoint() {
-        return geometry.getFirstPoint();
+    public Point firstPoint() {
+        return geometry.firstPoint();
     }
 
 

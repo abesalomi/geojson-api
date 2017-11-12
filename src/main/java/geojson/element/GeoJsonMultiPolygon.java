@@ -47,7 +47,7 @@ public class GeoJsonMultiPolygon implements GeoJsonElement<List<List<List<Double
     }
 
     @Override
-    public Point getFirstPoint() {
+    public Point firstPoint() {
         return Point.fromGeoJsonList(coordinates.get(0).get(0).get(0));
     }
 }

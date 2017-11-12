@@ -22,7 +22,18 @@ public class GeoJsonFeatureCollectionSpec {
     @Test
     public void whenJsonIsValidThenParse() {
         GeoJsonFeatureCollection<Map> collection = GeoJsonFeatureCollection.createWithPropertiesMap(GeoJsonSamples.FEATURE_COLLECTION);
-        System.out.println(collection.toJson());
+
         assertThat(collection, notNullValue());
+    }
+
+
+    @Test
+    public void givenFeatureCollectionWhenConvertToGeometryCollectionThenReutnGeometryCollection() {
+        GeoJsonFeatureCollection<Map> featureCollection = GeoJsonFeatureCollection
+                .createWithPropertiesMap(GeoJsonSamples.FEATURE_COLLECTION);
+
+        GeometryCollection geometryCollection = featureCollection.toGeometryCollection();
+
+        assertThat(geometryCollection.size(), equalTo(featureCollection.size()));
     }
 }

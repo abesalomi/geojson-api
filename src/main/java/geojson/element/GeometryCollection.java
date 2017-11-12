@@ -9,7 +9,9 @@ import javax.json.JsonArray;
 import javax.json.JsonObject;
 import javax.json.JsonValue;
 import java.io.StringReader;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
@@ -55,8 +57,18 @@ public class GeometryCollection implements GeoJson {
 
 
     @Override
-    public Point getFirstPoint() {
-        return geometries.get(0).getFirstPoint();
+    public Point firstPoint() {
+        return geometries.get(0).firstPoint();
     }
+
+    public Map<String, Object> toElasticsearchMap() {
+        Map<String, Object> map = new HashMap<>();
+
+        map.put("type", getType().toLowerCase());
+        map.put("geometries", getGeometries().stream().map(GeoJsonElement::toElasticsearchMap).collect(Collectors.toList()));
+
+        return map;
+    }
+
 
 }

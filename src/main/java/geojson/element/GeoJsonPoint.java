@@ -47,7 +47,7 @@ public class GeoJsonPoint implements GeoJsonElement<Double> {
 
 
     @Override
-    public Point getFirstPoint() {
+    public Point firstPoint() {
         return Point.fromGeoJsonList(coordinates);
     }
 }

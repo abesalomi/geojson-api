@@ -46,7 +46,7 @@ public class GeoJsonLineString implements GeoJsonElement<List<Double>> {
     }
 
     @Override
-    public Point getFirstPoint() {
+    public Point firstPoint() {
         return Point.fromGeoJsonList(coordinates.get(0));
     }
 }
