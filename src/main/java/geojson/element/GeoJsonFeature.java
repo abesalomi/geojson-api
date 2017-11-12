@@ -34,7 +34,7 @@ public class GeoJsonFeature<T> implements GeoJson {
     }
 
 
-    public static GeoJsonFeature from(JsonObject json) {
+    public static GeoJsonFeature<Object> from(JsonObject json) {
         if (!Objects.equals(json.getString("type"), TYPE)) {
             throw new IllegalArgumentException();
         }

@@ -154,4 +154,25 @@ public interface GeoJsonSamples {
             "        ]\n" +
             "      }\n" +
             "    }";
+
+
+
+    String FEATURE_COLLECTION = "{\n" +
+            "  \"type\": \"FeatureCollection\",\n" +
+            "  \"features\": [\n" +
+            "    {\n" +
+            "      \"type\": \"Feature\",\n" +
+            "      \"properties\": {\n" +
+            "        \"sample\": \"sample\"\n" +
+            "      },\n" +
+            "      \"geometry\": {\n" +
+            "        \"type\": \"Point\",\n" +
+            "        \"coordinates\": [\n" +
+            "          79.1015625,\n" +
+            "          53.12040528310657\n" +
+            "        ]\n" +
+            "      }\n" +
+            "    }\n" +
+            "  ]\n" +
+            "}";
 }
