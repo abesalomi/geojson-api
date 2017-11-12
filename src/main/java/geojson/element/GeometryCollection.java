@@ -3,12 +3,16 @@ package geojson.element;
 import geojson.GeoJsonElementParser;
 import lombok.Builder;
 import lombok.Getter;
+import org.codehaus.jackson.map.ObjectMapper;
 
 import javax.json.Json;
 import javax.json.JsonArray;
 import javax.json.JsonObject;
 import javax.json.JsonValue;
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
 import java.io.StringReader;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
@@ -24,6 +28,10 @@ public class GeometryCollection implements GeoJson {
     @Override
     public String getType() {
         return TYPE;
+    }
+
+    public int size() {
+        return geometries.size();
     }
 
     public static GeometryCollection from(JsonObject json) {

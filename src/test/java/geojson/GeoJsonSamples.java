@@ -140,4 +140,18 @@ public interface GeoJsonSamples {
             "     }\n" +
             "  ]\n" +
             "}";
+
+    String FEATURE = "{\n" +
+            "      \"type\": \"Feature\",\n" +
+            "      \"properties\": {\n" +
+            "        \"sampleProperty\": \"present\"\n" +
+            "      },\n" +
+            "      \"geometry\": {\n" +
+            "        \"type\": \"Point\",\n" +
+            "        \"coordinates\": [\n" +
+            "          79.1015625,\n" +
+            "          53.12040528310657\n" +
+            "        ]\n" +
+            "      }\n" +
+            "    }";
 }
